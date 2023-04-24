@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ulfius.h": "c",
+        "stdlib.h": "c"
+    }
+}
