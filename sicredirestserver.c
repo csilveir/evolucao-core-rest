@@ -42,7 +42,7 @@ int main(void) {
 
   
   if (ulfius_init_instance(&instance, PORT, NULL, NULL) != U_OK) {
-    fprintf(stderr, "Erro na inicialiação da instância, abortando\n");
+    fprintf(stderr, "Erro na inicialização da instância, abortando\n");
     return(1);
   }
 
@@ -53,7 +53,7 @@ int main(void) {
 
     getchar();
   } else {
-    fprintf(stderr, "Error inilicializando o RESTServer\n");
+    fprintf(stderr, "Error inicializando o RESTServer\n");
   }
   printf("Fim do RESTServer\n");
 
