@@ -1,9 +1,22 @@
 ## Para compilar o projeto
 
-gcc -o sicredirestserver sicredirestserver.c -lulfius
+gcc -o sicredirestserver sicredirestserver.c -L/lib/x86_64-linux-gnu -lulfius -ljansson -lorcania
 
 
 ## Executando o processo
 
 ./sicredirestserver
 
+
+## Comando de leitura
+curl --location 'http://localhost:8080/contacorrente/saldo' \
+--header 'Content-Type: application/json' 
+
+## Comando de escrita
+curl --location 'http://localhost:8080/contacorrente/?id=5' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id" : 1278,
+    "name" : "Conta Corrente PF Sicredi"
+
+ }'

@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "ulfius.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "typeinfo": "c",
+        "string.h": "c",
+        "sicrediutils.h": "c",
+        "jansson.h": "c"
     }
 }
