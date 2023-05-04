@@ -108,8 +108,12 @@ void *run(void *threadarg) {
   ulfius_add_endpoint_by_val(&instance, "POST", "/contacorrente/", NULL, 0, &response_json_post_saldo, NULL);
 
    if (ulfius_start_framework(&instance) == U_OK) {
-    printf("RESTServer Sicredi em C atendendo na porta %d\n", instance.port);
-    getchar();
+    printf("RESTSicredi em C atendendo na porta %d\n", instance.port);
+    int character = getchar();
+    while(character != -1 ){
+      character = getchar();
+      printf("Para parar o servidor RESTSicredi pressionar Control + C", instance.port);
+    }
 
   } else {
     fprintf(stderr, "Error inicializando o RESTServer\n");
