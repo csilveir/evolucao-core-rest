@@ -2,6 +2,7 @@
 #include <ulfius.h>
 #include <string.h>
 #include <jansson.h>
+#include <pthread.h>
 
 
 #define PORT 8080
@@ -94,13 +95,13 @@ int response_json_post_saldo (const struct _u_request * request, struct _u_respo
 
   return U_CALLBACK_CONTINUE; 
 }
-int main(void) {
+void *run(void *threadarg) {
   struct _u_instance instance;
 
   
   if (ulfius_init_instance(&instance, PORT, NULL, NULL) != U_OK) {
     fprintf(stderr, "Erro na inicialização da instância, abortando\n");
-    return(1);
+    
   }
 
   ulfius_add_endpoint_by_val(&instance, "GET", "/contacorrente/saldo", NULL, 0, &response_json_get_saldo, NULL);
@@ -108,8 +109,8 @@ int main(void) {
 
    if (ulfius_start_framework(&instance) == U_OK) {
     printf("RESTServer Sicredi em C atendendo na porta %d\n", instance.port);
-
     getchar();
+
   } else {
     fprintf(stderr, "Error inicializando o RESTServer\n");
   }
@@ -117,6 +118,11 @@ int main(void) {
 
   ulfius_stop_framework(&instance);
   ulfius_clean_instance(&instance);
-
+  
+}
+int main(void) {
+  pthread_t thread;
+  pthread_create(&thread, NULL, run, NULL);
+  pthread_join(thread, NULL);
   return 0;
 }

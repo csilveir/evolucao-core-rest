@@ -1,6 +1,6 @@
 ## Para compilar o projeto
 
-gcc -o sicredirestserver sicredirestserver.c -L/lib/x86_64-linux-gnu -lulfius -ljansson -lorcania
+gcc -o sicredirestserver sicredirestserver.c -L/lib/x86_64-linux-gnu -lulfius -ljansson -lorcania -lpthread
 
 
 ## Executando o processo
@@ -20,3 +20,12 @@ curl --location 'http://localhost:8080/contacorrente/?id=5' \
     "name" : "Conta Corrente PF Sicredi"
 
  }'
+
+
+ ## Criando a imagem Docker
+
+ docker build . -t sicredi/sicredirestserver 
+
+ ## Rodando a imagem Docker
+
+ docker run -it -p 8080:8080 sicredi/sicredirestserver 
