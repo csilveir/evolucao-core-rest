@@ -1,5 +1,4 @@
 ## Para compilar o projeto
-
 gcc -o sicredirestserver sicredirestserver.c -L/lib/x86_64-linux-gnu -lulfius -ljansson -lorcania -lpthread
 
 
