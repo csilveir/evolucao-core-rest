@@ -34,11 +34,11 @@ extern char * print_map(const struct _u_map * map) {
     return NULL;
   }
 }
-extern char* getData(char* directory) {
+extern char* getMockData() {
 
     char * buffer = 0;
     long length;
-    FILE * file = fopen(directory,"rb");
+    FILE * file = fopen("./responses/data.json","rb");
 
     if (file)
         {

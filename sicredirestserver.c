@@ -17,7 +17,7 @@ int response_json_get_saldo (const struct _u_request * request, struct _u_respon
    * com o conteúdo para ser entregue pelo REST Server.
    * 
   */
-  ulfius_set_string_body_response(response, 200, getData("./responses/data.json"));
+  ulfius_set_string_body_response(response, 200, getMockData());
   return U_CALLBACK_CONTINUE;
 }
 
@@ -35,7 +35,7 @@ int response_json_post_saldo (const struct _u_request * request, struct _u_respo
   printf("id: %f \n",json_number_value(json_object_get(json_nb_sheep,"id")));
   printf("name: %s \n",json_string_value(json_object_get(json_nb_sheep,"name")));
 
-  ulfius_set_string_body_response(response, 200, getData("./responses/data.json"));
+  ulfius_set_string_body_response(response, 200, getMockData());
 
   o_free(post_params);
 
